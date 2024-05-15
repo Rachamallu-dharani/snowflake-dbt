@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: src_staging_emp_data3
+    columns:
+
+     - name: fullName
+       tests:
+         - not_null
+
+     - name: empid
+       tests:
+         - not_null
+
+     - name: kind
+       tests:
+         - accepted_values:
+             values: ['person']
+             
+     - name: gender
+       tests:
+         - accepted_values:
+              values: ['Male',
+                       'Female',
+                       'Unknown']
