@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: target_dim_emp_yearsLived_3
+    columns:
+
+      - name: empid
+        tests:
+          - not_null
+          - relationships:
+              to: ref('src_staging_emp_data3')
+              field: empid
+
+      - name: year
+        tests:
+          - positive_value

@@ -15,6 +15,7 @@ SELECT
     child.value:age::number as child_age,
     city.value:place::string as city_name,
     year.value::number as year,
+    created_date,
     updated_date,
 FROM stage_raw_table_3,
     LATERAL FLATTEN(

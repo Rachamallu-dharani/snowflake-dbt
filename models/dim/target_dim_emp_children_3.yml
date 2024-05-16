@@ -1,17 +1,12 @@
 version: 2
 
 models:
-  - name: target_dim_emp_details_3
+  - name: target_dim_emp_children_3
     columns:
 
-      - name: fullName
+      - name: child_name
         tests:
           - not_null
-
-      - name: kind
-        tests:
-          - accepted_values:
-              values: ['person']
 
       - name: empid
         tests:
@@ -20,13 +15,13 @@ models:
               to: ref('src_staging_emp_data3')
               field: empid
 
-      - name: gender
+      - name: child_gender
         tests:
           - accepted_values:
               values: ['M',
                        'F', 
                        'Unknown']
-
-      - name: phonenumber
+                       
+      - name: child_age
         tests:
           - positive_value

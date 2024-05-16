@@ -12,15 +12,14 @@ WITH src_staging_emp_data3 AS (
 )
 SELECT
     {{ dbt_utils.generate_surrogate_key(['empid' ,'child_name','child_gender','child_age']) }} as child_surrogate_id,
-    raw_id,
+    {{ emp_create_date_updated_date_3()}}
     empid,
     child_name,
     {{ emp_transform_gender_3('child_gender') }} as child_gender,
-	child_age,
-	updated_date,
+	  child_age
 FROM
     src_staging_emp_data3
-group by raw_id,empid,child_name,child_gender,child_age,updated_date
+group by raw_id,empid,child_name,child_gender,child_age,created_date,updated_date
 {% if is_incremental() %}
   having updated_date > (select max(updated_date) from {{ this }})
 {% endif %}

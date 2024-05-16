@@ -3,7 +3,7 @@
         materialized = 'incremental',
         unique_key='citislived_surrogate_id',
         incremental_strategy='delete+insert',
-        on_schema_change='fail'
+        on_schema_change='append_new_columns'
 ) }}
 WITH target_dim_emp_citiesLived_3 AS (
     SELECT * FROM {{ ref('target_dim_emp_citiesLived_3') }}

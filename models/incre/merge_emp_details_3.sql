@@ -4,7 +4,7 @@
         unique_key='surrogate_id',
         incremental_strategy='merge',
         merge_exclude_columns = ['emp_id','kind','updated_date'],
-        on_schema_change='fail'
+        on_schema_change='append_new_columns'
 ) }}
 
 WITH target_dim_emp_details_3 AS (

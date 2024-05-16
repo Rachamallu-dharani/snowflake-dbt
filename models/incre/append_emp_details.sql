@@ -3,7 +3,7 @@
         materialized = 'incremental',
         unique_key='surrogate_id',
         incremental_strategy='append',
-        on_schema_change='fail'
+        on_schema_change='append_new_columns'
 ) }}
 
 WITH target_dim_emp_details_3 AS (
